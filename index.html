@@ -1,531 +1,291 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>PiuAvanti — Expresarse también es avanzar</title>
-
-    <style>
-        :root {
-            --amber: #F5A900;
-            --amber-light: #FFD45A;
-            --amber-pale: #FFF4CC;
-            --cream: #FFF9E8;
-            --black: #211A0D;
-            --brown: #604714;
-            --white: #FFFFFF;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--cream);
-            color: var(--black);
-            line-height: 1.6;
-        }
-
-        /* NAV */
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 18px 7%;
-
-            background: var(--amber);
-            box-shadow: 0 3px 15px rgba(0,0,0,.15);
-        }
-
-        .logo {
-            font-size: 1.7rem;
-            font-weight: 900;
-            letter-spacing: -1px;
-        }
-
-        nav a {
-            color: var(--black);
-            text-decoration: none;
-            font-weight: bold;
-            margin-left: 25px;
-        }
-
-        nav a:hover {
-            color: var(--white);
-        }
-
-        /* GENERAL */
-
-        section {
-            padding: 90px 8%;
-        }
-
-        h1 {
-            font-size: clamp(3.5rem, 9vw, 8rem);
-            line-height: .9;
-            letter-spacing: -5px;
-        }
-
-        h2 {
-            font-size: clamp(2.3rem, 5vw, 4rem);
-            margin-bottom: 20px;
-            line-height: 1;
-        }
-
-        p {
-            color: var(--brown);
-        }
-
-        /* HERO */
-
-        #inicio {
-            min-height: 90vh;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            background:
-                radial-gradient(
-                    circle at 85% 20%,
-                    var(--amber-light),
-                    transparent 30%
-                ),
-                var(--cream);
-        }
-
-        .hero-text {
-            max-width: 850px;
-        }
-
-        .hero-text p {
-            margin-top: 35px;
-            max-width: 650px;
-            font-size: 1.25rem;
-        }
-
-        .hero-line {
-            display: inline-block;
-            margin-top: 35px;
-            padding: 12px 18px;
-
-            background: var(--black);
-            color: var(--amber-light);
-
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        /* MURO */
-
-        #muro {
-            background: var(--amber-pale);
-        }
-
-        .intro {
-            max-width: 700px;
-            margin-bottom: 45px;
-        }
-
-        .obras {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 35px;
-        }
-
-        .obra {
-            background: var(--white);
-            overflow: hidden;
-
-            border: 2px solid var(--black);
-
-            box-shadow: 9px 9px 0 var(--amber);
-
-            transition:
-                transform .2s ease,
-                box-shadow .2s ease;
-        }
-
-        .obra:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 13px 13px 0 var(--black);
-        }
-
-        .obra img {
-            display: block;
-            width: 100%;
-            height: 350px;
-
-            object-fit: cover;
-
-            background: var(--amber-light);
-        }
-
-        .obra-info {
-            padding: 22px;
-        }
-
-        .obra-info h3 {
-            font-size: 1.4rem;
-            margin-bottom: 8px;
-        }
-
-        /* EXPRESAR */
-
-        #expresar {
-            background: var(--cream);
-        }
-
-        .expresar-container {
-            max-width: 800px;
-        }
-
-        .expresar-container > p {
-            font-size: 1.2rem;
-            margin-bottom: 35px;
-        }
-
-        .upload-box {
-            border: 3px dashed var(--amber);
-            background: var(--amber-pale);
-
-            padding: 45px;
-            text-align: center;
-        }
-
-        .upload-box h3 {
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-
-        .upload-box p {
-            margin-bottom: 25px;
-        }
-
-        .fake-upload {
-            display: inline-block;
-
-            padding: 15px 30px;
-
-            background: var(--black);
-            color: var(--white);
-
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .fake-upload:hover {
-            background: var(--amber);
-            color: var(--black);
-        }
-
-        /* AVISO */
-
-        .aviso {
-            margin-top: 45px;
-
-            padding: 25px;
-
-            border-left: 7px solid var(--amber);
-            background: var(--amber-pale);
-        }
-
-        .aviso strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            padding: 45px 8%;
-
-            background: var(--black);
-            color: var(--amber-light);
-
-            text-align: center;
-        }
-
-        footer p {
-            color: var(--amber-light);
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 700px) {
-
-            nav {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            nav a {
-                margin: 0 8px;
-            }
-
-            section {
-                padding: 65px 6%;
-            }
-
-            h1 {
-                letter-spacing: -3px;
-            }
-
-            .obra img {
-                height: 300px;
-            }
-
-            .upload-box {
-                padding: 30px 20px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PiuAvanti</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#FFF8E1;
+color:#211A0D;
+line-height:1.6;
+}
+
+nav{
+position:sticky;
+top:0;
+z-index:10;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:#F5A900;
+box-shadow:0 3px 12px #0002;
+}
+
+.logo{
+font-size:1.7rem;
+font-weight:900;
+}
+
+nav a{
+color:#211A0D;
+text-decoration:none;
+font-weight:bold;
+margin-left:25px;
+}
+
+section{padding:90px 8%}
+
+#inicio{
+min-height:90vh;
+display:flex;
+align-items:center;
+background:#FFF8E1;
+}
+
+.hero{max-width:900px}
+
+h1{
+font-size:clamp(4rem,9vw,8rem);
+line-height:.9;
+letter-spacing:-5px;
+}
+
+.hero p{
+margin-top:35px;
+max-width:650px;
+font-size:1.25rem;
+color:#604714;
+}
+
+.frase{
+display:inline-block;
+margin-top:30px;
+padding:12px 18px;
+background:#211A0D;
+color:#FFD45A;
+font-weight:bold;
+}
+
+#muro{
+background:#FFF0B8;
+}
+
+h2{
+font-size:clamp(2.5rem,5vw,4rem);
+margin-bottom:20px;
+}
+
+.intro{
+max-width:700px;
+margin-bottom:45px;
+}
+
+.obras{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:35px;
+}
+
+.obra{
+background:white;
+border:2px solid #211A0D;
+box-shadow:9px 9px 0 #F5A900;
+overflow:hidden;
+}
+
+.obra img{
+display:block;
+width:100%;
+height:350px;
+object-fit:cover;
+}
+
+.obra-info{
+padding:22px;
+}
+
+.obra-info h3{
+margin-bottom:8px;
+}
+
+#expresar{
+background:#FFF8E1;
+}
+
+.expresar{
+max-width:800px;
+}
+
+.upload{
+margin-top:35px;
+padding:45px;
+border:3px dashed #F5A900;
+background:#FFF0B8;
+text-align:center;
+}
+
+.upload button{
+margin-top:20px;
+padding:15px 30px;
+border:0;
+background:#211A0D;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+.aviso{
+margin-top:40px;
+padding:25px;
+border-left:7px solid #F5A900;
+background:#FFE082;
+}
+
+footer{
+padding:45px 8%;
+background:#211A0D;
+color:#FFD45A;
+text-align:center;
+}
+
+@media(max-width:700px){
+nav{flex-direction:column;gap:12px}
+nav a{margin:0 8px}
+section{padding:65px 6%}
+.obra img{height:300px}
+}
+</style>
 </head>
 
 <body>
 
-    <!-- NAVEGACIÓN -->
-
-    <nav>
-        <div class="logo">PiuAvanti.</div>
-
-        <div>
-            <a href="#inicio">Inicio</a>
-            <a href="#muro">Muro</a>
-            <a href="#expresar">Expresar</a>
-        </div>
-    </nav>
-
-
-    <!-- INICIO -->
-
-    <section id="inicio">
-
-        <div class="hero-text">
-
-            <h1>
-                Todavía<br>
-                estás aquí.
-            </h1>
-
-            <p>
-                A veces no encontramos las palabras para decir lo que sentimos.
-                Crear también puede ser una forma de hacerlo.
-            </p>
-
-            <span class="hero-line">
-                NO TIENE QUE SER BONITO. TIENE QUE SER TUYO.
-            </span>
-
-        </div>
-
-    </section>
-
-
-    <!-- MURO -->
-
-    <section id="muro">
-
-        <div class="intro">
-
-            <h2>El muro</h2>
-
-            <p>
-                Un espacio para compartir aquello que quizá no pudiste decir
-                de otra manera.
-            </p>
-
-        </div>
-
-
-        <div class="obras">
-
-            <!-- OBRA 1 -->
-
-            <article class="obra">
-
-                <img
-                    src="images/obra1.jpg"
-                    alt="Expresión artística 1"
-                >
-
-                <div class="obra-info">
-
-                    <h3>Obra 01</h3>
-
-                    <p>
-                        Una expresión sin necesidad de explicaciones.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <!-- OBRA 2 -->
-
-            <article class="obra">
-
-                <img
-                    src="images/obra2.jpg"
-                    alt="Expresión artística 2"
-                >
-
-                <div class="obra-info">
-
-                    <h3>Obra 02</h3>
-
-                    <p>
-                        Lo que no siempre puede decirse con palabras.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <!-- OBRA 3 -->
-
-            <article class="obra">
-
-                <img
-                    src="images/obra3.jpg"
-                    alt="Expresión artística 3"
-                >
-
-                <div class="obra-info">
-
-                    <h3>Obra 03</h3>
-
-                    <p>
-                        Crear también puede ser una manera de continuar.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- EXPRESAR -->
-
-    <section id="expresar">
-
-        <div class="expresar-container">
-
-            <h2>Exprésalo.</h2>
-
-            <p>
-                No necesitas saber dibujar. No necesitas hacerlo perfecto.
-                Solo necesitas encontrar una forma de sacar aquello que
-                llevas dentro.
-            </p>
-
-
-            <div class="upload-box">
-
-                <h3>Comparte tu expresión</h3>
-
-                <p>
-                    En esta versión de la campaña puedes seleccionar una
-                    imagen como demostración del proceso.
-                </p>
-
-                <label class="fake-upload">
-
-                    Seleccionar imagen
-
-                    <input
-                        type="file"
-                        accept="image/*"
-                        style="display:none"
-                        onchange="mostrarImagen(event)"
-                    >
-
-                </label>
-
-                <div id="preview" style="margin-top:25px;"></div>
-
-            </div>
-
-
-            <div class="aviso">
-
-                <strong>
-                    Crear no sustituye la atención profesional.
-                </strong>
-
-                <p>
-                    PiuAvanti propone el arte como un medio de expresión,
-                    no como reemplazo de ayuda psicológica o profesional.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <p>
-            PiuAvanti — Expresarse también es avanzar.
-        </p>
-
-    </footer>
-
-
-    <!-- PREVISUALIZACIÓN DE IMAGEN -->
-
-    <script>
-
-        function mostrarImagen(event) {
-
-            const archivo = event.target.files[0];
-
-            if (!archivo) return;
-
-            const preview = document.getElementById("preview");
-
-            const imagen = document.createElement("img");
-
-            imagen.src = URL.createObjectURL(archivo);
-
-            imagen.style.maxWidth = "100%";
-            imagen.style.maxHeight = "500px";
-            imagen.style.display = "block";
-            imagen.style.margin = "0 auto";
-
-            preview.innerHTML = "";
-
-            preview.appendChild(imagen);
-        }
-
-    </script>
+<nav>
+<div class="logo">PiuAvanti.</div>
+<div>
+<a href="#inicio">Inicio</a>
+<a href="#muro">Muro</a>
+<a href="#expresar">Expresar</a>
+</div>
+</nav>
+
+<section id="inicio">
+<div class="hero">
+<h1>Todavía<br>estás aquí.</h1>
+
+<p>
+A veces no encontramos las palabras para decir lo que sentimos.
+Crear también puede ser una forma de hacerlo.
+</p>
+
+<div class="frase">
+NO TIENE QUE SER BONITO. TIENE QUE SER TUYO.
+</div>
+</div>
+</section>
+
+<section id="muro">
+
+<div class="intro">
+<h2>El muro</h2>
+<p>
+Un espacio para compartir aquello que quizá no pudiste decir
+de otra manera.
+</p>
+</div>
+
+<div class="obras">
+
+<div class="obra">
+<img src="images/obra1.png" alt="Expresión artística 01">
+<div class="obra-info">
+<h3>Expresión artística 01</h3>
+<p>Una forma de expresar lo que las palabras no alcanzan.</p>
+</div>
+</div>
+
+<div class="obra">
+<img src="images/obra2.png" alt="Expresión artística 02">
+<div class="obra-info">
+<h3>Expresión artística 02</h3>
+<p>Lo que no siempre puede decirse con palabras.</p>
+</div>
+</div>
+
+<div class="obra">
+<img src="images/obra3.png" alt="Expresión artística 03">
+<div class="obra-info">
+<h3>Expresión artística 03</h3>
+<p>Crear también puede ser una manera de continuar.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="expresar">
+
+<div class="expresar">
+
+<h2>Exprésalo.</h2>
+
+<p>
+No necesitas saber dibujar. No necesitas hacerlo perfecto.
+Solo necesitas encontrar una forma de sacar aquello que llevas dentro.
+</p>
+
+<div class="upload">
+<h3>Comparte tu expresión</h3>
+
+<p>
+Selecciona una imagen para visualizar cómo funcionaría este espacio.
+</p>
+
+<button onclick="document.getElementById('foto').click()">
+Seleccionar imagen
+</button>
+
+<input id="foto" type="file" accept="image/*" hidden
+onchange="preview(event)">
+
+<div id="resultado"></div>
+</div>
+
+<div class="aviso">
+<strong>Crear no sustituye la atención profesional.</strong>
+<p>
+PiuAvanti propone el arte como un medio de expresión,
+no como reemplazo de ayuda psicológica o profesional.
+</p>
+</div>
+
+</div>
+</section>
+
+<footer>
+PiuAvanti — Expresarse también es avanzar.
+</footer>
+
+<script>
+function preview(event){
+const archivo=event.target.files[0];
+if(!archivo)return;
+
+const imagen=document.createElement("img");
+imagen.src=URL.createObjectURL(archivo);
+imagen.style.maxWidth="100%";
+imagen.style.maxHeight="500px";
+imagen.style.marginTop="25px";
+
+document.getElementById("resultado").innerHTML="";
+document.getElementById("resultado").appendChild(imagen);
+}
+</script>
 
 </body>
 </html>
