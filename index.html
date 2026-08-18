@@ -1,247 +1,593 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> PiuAvanti </title>
+    <title>PiuAvanti — Expresarse también es avanzar</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --amber: #F5A900;
+            --amber-light: #FFD45A;
+            --amber-pale: #FFF4CC;
+            --cream: #FFF9E8;
+            --black: #211A0D;
+            --brown: #604714;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--cream);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* NAV */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 7%;
+
+            background: var(--amber);
+            box-shadow: 0 3px 15px rgba(0,0,0,.15);
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        nav a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: var(--white);
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 9vw, 8rem);
+            line-height: .9;
+            letter-spacing: -5px;
+        }
+
+        h2 {
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        p {
+            color: var(--brown);
+        }
+
+        /* HERO */
+
+        #inicio {
+            min-height: 90vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    var(--amber-light),
+                    transparent 30%
+                ),
+                var(--cream);
+        }
+
+        .hero-text {
+            max-width: 850px;
+        }
+
+        .hero-text p {
+            margin-top: 35px;
+            max-width: 650px;
+            font-size: 1.25rem;
+        }
+
+        .hero-line {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 12px 18px;
+
+            background: var(--black);
+            color: var(--amber-light);
+
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* MURO */
+
+        #muro {
+            background: var(--amber-pale);
+        }
+
+        .intro {
+            max-width: 700px;
+            margin-bottom: 45px;
+        }
+
+        .obras {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 35px;
+        }
+
+        .obra {
+            background: var(--white);
+            overflow: hidden;
+
+            border: 2px solid var(--black);
+
+            box-shadow: 9px 9px 0 var(--amber);
+
+            transition:
+                transform .2s ease,
+                box-shadow .2s ease;
+        }
+
+        .obra:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 13px 13px 0 var(--black);
+        }
+
+        .obra img {
+            display: block;
+            width: 100%;
+            height: 350px;
+
+            object-fit: cover;
+
+            background: var(--amber-light);
+        }
+
+        .obra-info {
+            padding: 22px;
+        }
+
+        .obra-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        /* EXPRESAR */
+
+        #expresar {
+            background: var(--cream);
+        }
+
+        .expresar-container {
+            max-width: 800px;
+        }
+
+        .expresar-container > p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+        }
+
+        .upload-box {
+            border: 3px dashed var(--amber);
+            background: var(--amber-pale);
+
+            padding: 45px;
+            text-align: center;
+        }
+
+        .upload-box h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .upload-box p {
+            margin-bottom: 25px;
+        }
+
+        .fake-upload {
+            display: inline-block;
+
+            padding: 15px 30px;
+
+            background: var(--black);
+            color: var(--white);
+
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .fake-upload:hover {
+            background: var(--amber);
+            color: var(--black);
+        }
+
+        /* AVISO */
+
+        .aviso {
+            margin-top: 45px;
+
+            padding: 25px;
+
+            border-left: 7px solid var(--amber);
+            background: var(--amber-pale);
+        }
+
+        .aviso strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 45px 8%;
+
+            background: var(--black);
+            color: var(--amber-light);
+
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--amber-light);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            section {
+                padding: 65px 6%;
+            }
+
+            h1 {
+                letter-spacing: -3px;
+            }
+
+            .obra img {
+                height: 300px;
+            }
+
+            .upload-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header>
-        <h1> PiuAvanti </h1>
+    <!-- NAVEGACIÓN -->
 
-        <nav>
+    <nav>
+        <div class="logo">PiuAvanti.</div>
+
+        <div>
             <a href="#inicio">Inicio</a>
             <a href="#muro">Muro</a>
             <a href="#expresar">Expresar</a>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
 
-    <main>
+    <!-- INICIO -->
 
-        <section id="inicio" class="hero">
+    <section id="inicio">
 
-            <p class="small-text">NO TIENE QUE SER BONITO.</p>
+        <div class="hero-text">
 
-            <h2>
-                TIENE QUE SER TUYO.
-            </h2>
-
-            <p class="intro">
-                Hay cosas que no sabemos decir.
-                A veces podemos empezar expresándolas.
-            </p>
-
-            <a href="#expresar" class="button">
-                EXPRESAR
-            </a>
-
-        </section>
-
-
-        <section class="statement">
+            <h1>
+                Todavía<br>
+                estás aquí.
+            </h1>
 
             <p>
-                No necesitas saber dibujar.
-                No necesitas hacer algo perfecto.
-                No necesitas encontrar las palabras correctas.
+                A veces no encontramos las palabras para decir lo que sentimos.
+                Crear también puede ser una forma de hacerlo.
             </p>
 
-            <p class="big-statement">
-                CREA ALGO QUE DIGA LO QUE TÚ NO PUEDES DECIR.
+            <span class="hero-line">
+                NO TIENE QUE SER BONITO. TIENE QUE SER TUYO.
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- MURO -->
+
+    <section id="muro">
+
+        <div class="intro">
+
+            <h2>El muro</h2>
+
+            <p>
+                Un espacio para compartir aquello que quizá no pudiste decir
+                de otra manera.
             </p>
 
-        </section>
+        </div>
 
 
-        <section id="muro" class="wall">
+        <div class="obras">
 
-            <h2>MURO DE EXPRESIONES</h2>
+            <!-- OBRA 1 -->
 
-            <p class="section-intro">
-                Cada obra es una forma diferente de decir
-                “esto es lo que estoy viviendo”.
+            <article class="obra">
+
+                <img
+                    src="images/obra1.jpg"
+                    alt="Expresión artística 1"
+                >
+
+                <div class="obra-info">
+
+                    <h3>Obra 01</h3>
+
+                    <p>
+                        Una expresión sin necesidad de explicaciones.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- OBRA 2 -->
+
+            <article class="obra">
+
+                <img
+                    src="images/obra2.jpg"
+                    alt="Expresión artística 2"
+                >
+
+                <div class="obra-info">
+
+                    <h3>Obra 02</h3>
+
+                    <p>
+                        Lo que no siempre puede decirse con palabras.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- OBRA 3 -->
+
+            <article class="obra">
+
+                <img
+                    src="images/obra3.jpg"
+                    alt="Expresión artística 3"
+                >
+
+                <div class="obra-info">
+
+                    <h3>Obra 03</h3>
+
+                    <p>
+                        Crear también puede ser una manera de continuar.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- OBRA 4 -->
+
+            <article class="obra">
+
+                <img
+                    src="images/obra4.jpg"
+                    alt="Expresión artística 4"
+                >
+
+                <div class="obra-info">
+
+                    <h3>Obra 04</h3>
+
+                    <p>
+                        Una forma de sacar afuera aquello que llevamos dentro.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- OBRA 5 -->
+
+            <article class="obra">
+
+                <img
+                    src="images/obra5.jpg"
+                    alt="Expresión artística 5"
+                >
+
+                <div class="obra-info">
+
+                    <h3>Obra 05</h3>
+
+                    <p>
+                        Tu expresión no necesita ser perfecta.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- OBRA 6 -->
+
+            <article class="obra">
+
+                <img
+                    src="images/obra6.jpg"
+                    alt="Expresión artística 6"
+                >
+
+                <div class="obra-info">
+
+                    <h3>Obra 06</h3>
+
+                    <p>
+                        Lo importante es encontrar una forma de expresarlo.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPRESAR -->
+
+    <section id="expresar">
+
+        <div class="expresar-container">
+
+            <h2>Exprésalo.</h2>
+
+            <p>
+                No necesitas saber dibujar. No necesitas hacerlo perfecto.
+                Solo necesitas encontrar una forma de sacar aquello que
+                llevas dentro.
             </p>
 
 
-           <div class="obras">
+            <div class="upload-box">
 
-    <div class="obra">
-        <img src="images/obra1.jpg" alt="Expresión artística 1">
-        <div class="obra-info">
-            <h3>Obra 01</h3>
-            <p>Una forma de expresar lo que no siempre puede decirse con palabras.</p>
-        </div>
-    </div>
+                <h3>Comparte tu expresión</h3>
 
-    <div class="obra">
-        <img src="images/obra2.jpg" alt="Expresión artística 2">
-        <div class="obra-info">
-            <h3>Obra 02</h3>
-            <p>Una forma de expresar lo que no siempre puede decirse con palabras.</p>
-        </div>
-    </div>
+                <p>
+                    En esta versión de la campaña puedes seleccionar una
+                    imagen como demostración del proceso.
+                </p>
 
-    <div class="obra">
-        <img src="images/obra3.jpg" alt="Expresión artística 3">
-        <div class="obra-info">
-            <h3>Obra 03</h3>
-            <p>Una forma de expresar lo que no siempre puede decirse con palabras.</p>
-        </div>
-    </div>
+                <label class="fake-upload">
 
-    <div class="obra">
-        <img src="images/obra4.jpg" alt="Expresión artística 4">
-        <div class="obra-info">
-            <h3>Obra 04</h3>
-            <p>Una forma de expresar lo que no siempre puede decirse con palabras.</p>
-        </div>
-    </div>
+                    Seleccionar imagen
 
-    <div class="obra">
-        <img src="images/obra5.jpg" alt="Expresión artística 5">
-        <div class="obra-info">
-            <h3>Obra 05</h3>
-            <p>Una forma de expresar lo que no siempre puede decirse con palabras.</p>
-        </div>
-    </div>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        style="display:none"
+                        onchange="mostrarImagen(event)"
+                    >
 
-</div>
+                </label>
+
+                <div id="preview" style="margin-top:25px;"></div>
 
             </div>
 
-        </section>
+
+            <div class="aviso">
+
+                <strong>
+                    Crear no sustituye la atención profesional.
+                </strong>
+
+                <p>
+                    PiuAvanti propone el arte como un medio de expresión,
+                    no como reemplazo de ayuda psicológica o profesional.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
 
 
-        <section id="expresar" class="express">
-
-            <h2>¿QUÉ QUIERES EXPRESAR?</h2>
-
-            <p>
-                No tiene que ser una obra de arte.
-                Puede ser un dibujo, una fotografía,
-                un collage o cualquier cosa que te represente.
-            </p>
-
-            <button class="button">
-                SUBIR UNA EXPRESIÓN
-            </button>
-
-        </section>
-
-
-    </main>
-
+    <!-- FOOTER -->
 
     <footer>
 
         <p>
-            PiuAvanti
-        </p>
-
-        <p>
-            Crear no sustituye la atención profesional.
-            Si estás atravesando una crisis, busca ayuda.
+            PiuAvanti — Expresarse también es avanzar.
         </p>
 
     </footer>
 
+
+    <!-- PREVISUALIZACIÓN DE IMAGEN -->
+
+    <script>
+
+        function mostrarImagen(event) {
+
+            const archivo = event.target.files[0];
+
+            if (!archivo) return;
+
+            const preview = document.getElementById("preview");
+
+            const imagen = document.createElement("img");
+
+            imagen.src = URL.createObjectURL(archivo);
+
+            imagen.style.maxWidth = "100%";
+            imagen.style.maxHeight = "500px";
+            imagen.style.display = "block";
+            imagen.style.margin = "0 auto";
+
+            preview.innerHTML = "";
+
+            preview.appendChild(imagen);
+        }
+
+    </script>
+
 </body>
 </html>
-
-<section id="expresar" class="expresar">
-    <div class="expresar-container">
-
-        <h2>Expresar</h2>
-
-        <p>
-            No tiene que ser bonito. Tiene que ser tuyo.
-        </p>
-
-        <form id="uploadForm">
-
-            <label for="imagen">Comparte una imagen</label>
-
-            <input
-                type="file"
-                id="imagen"
-                name="imagen"
-                accept="image/*"
-                required
-            >
-
-            <div id="previewContainer" style="display:none;">
-                <p>Vista previa:</p>
-
-                <img
-                    id="preview"
-                    src=""
-                    alt="Vista previa de la imagen"
-                    style="
-                        max-width: 100%;
-                        max-height: 500px;
-                        display: block;
-                        margin: 20px 0;
-                    "
-                >
-            </div>
-
-            <label for="mensaje">¿Quieres decir algo sobre tu obra?</label>
-
-            <textarea
-                id="mensaje"
-                name="mensaje"
-                rows="5"
-                placeholder="Escribe lo que quieras..."
-            ></textarea>
-
-            <button type="submit">
-                Compartir expresión
-            </button>
-
-        </form>
-
-        <p id="mensajeExito" style="display:none;">
-            Tu expresión está lista para compartir.
-        </p>
-
-    </div>
-</section>
-
-<script>
-const imagen = document.getElementById("imagen");
-const preview = document.getElementById("preview");
-const previewContainer = document.getElementById("previewContainer");
-const uploadForm = document.getElementById("uploadForm");
-const mensajeExito = document.getElementById("mensajeExito");
-
-imagen.addEventListener("change", function () {
-
-    const archivo = this.files[0];
-
-    if (archivo) {
-        const url = URL.createObjectURL(archivo);
-
-        preview.src = url;
-        previewContainer.style.display = "block";
-    }
-});
-
-uploadForm.addEventListener("submit", function (e) {
-
-    e.preventDefault();
-
-    mensajeExito.style.display = "block";
-
-    mensajeExito.scrollIntoView({
-        behavior: "smooth"
-    });
-
-});
-</script>
