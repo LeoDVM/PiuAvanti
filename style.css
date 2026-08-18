@@ -1,3 +1,17 @@
+:root {
+    --amber-50: #fff8e1;
+    --amber-100: #ffecb3;
+    --amber-200: #ffe082;
+    --amber-300: #ffd54f;
+    --amber-400: #ffca28;
+    --amber-500: #ffb300;
+    --amber-600: #ff8f00;
+    --amber-700: #f57c00;
+    --dark: #2b2110;
+    --brown: #5d4218;
+    --white: #fffdf7;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,314 +24,253 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #111111;
-    color: #eeeeee;
-    line-height: 1.5;
+    background: var(--amber-50);
+    color: var(--dark);
+    line-height: 1.6;
 }
 
+/* =========================
+   NAVEGACIÓN
+========================= */
 
-/* NAVEGACIÓN */
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-
+nav {
+    background: var(--amber-500);
+    color: var(--dark);
+    padding: 18px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    padding: 25px 50px;
-
-    background: rgba(17, 17, 17, 0.92);
-
+    position: sticky;
+    top: 0;
     z-index: 100;
-}
-
-header h1 {
-    font-size: 20px;
-    letter-spacing: 4px;
-}
-
-nav {
-    display: flex;
-    gap: 30px;
+    box-shadow: 0 3px 12px rgba(70, 45, 0, 0.15);
 }
 
 nav a {
-    color: #eeeeee;
+    color: var(--dark);
     text-decoration: none;
-    font-size: 13px;
-    letter-spacing: 2px;
+    font-weight: 700;
+    margin-left: 25px;
 }
 
+nav a:hover {
+    color: var(--white);
+}
 
-/* PORTADA */
+/* =========================
+   SECCIONES
+========================= */
+
+section {
+    padding: 80px 8%;
+}
+
+section:nth-child(even) {
+    background: var(--amber-100);
+}
+
+/* =========================
+   INICIO
+========================= */
 
 .hero {
-    min-height: 100vh;
-
+    min-height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    padding: 120px 10%;
+    align-items: flex-start;
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            var(--amber-300),
+            transparent 35%
+        ),
+        var(--amber-50);
 }
 
-.small-text {
-    font-size: 16px;
-    letter-spacing: 5px;
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 0.95;
+    max-width: 900px;
+    color: var(--dark);
+    margin-bottom: 30px;
+}
+
+.hero p {
+    max-width: 650px;
+    font-size: 1.25rem;
+    color: var(--brown);
+}
+
+/* =========================
+   TÍTULOS
+========================= */
+
+h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 25px;
+    color: var(--dark);
+}
+
+h3 {
+    color: var(--brown);
+}
+
+/* =========================
+   MURO
+========================= */
+
+.muro {
+    background: var(--amber-100);
+}
+
+.obras {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.obra {
+    background: var(--white);
+    border: 2px solid var(--amber-300);
+    box-shadow: 8px 8px 0 var(--amber-400);
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.obra:hover {
+    transform: translateY(-6px);
+    box-shadow: 12px 12px 0 var(--amber-600);
+}
+
+.obra img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+.obra-info {
+    padding: 20px;
+}
+
+.obra-info h3 {
+    margin-bottom: 8px;
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+button,
+.btn {
+    display: inline-block;
+    background: var(--amber-600);
+    color: var(--white);
+    border: none;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+button:hover,
+.btn:hover {
+    background: var(--dark);
+    transform: translateY(-2px);
+}
+
+/* =========================
+   FORMULARIOS
+========================= */
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid var(--amber-300);
+    background: var(--white);
+    color: var(--dark);
+    font-family: inherit;
+    font-size: 1rem;
     margin-bottom: 15px;
 }
 
-.hero h2 {
-    font-size: clamp(55px, 9vw, 140px);
-    line-height: 0.9;
-    max-width: 1000px;
-    letter-spacing: -5px;
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--amber-600);
 }
 
-.intro {
-    max-width: 500px;
-    margin-top: 40px;
+/* =========================
+   EXPRESAR
+========================= */
 
-    font-size: 20px;
-    color: #bbbbbb;
+.expresar {
+    background: var(--amber-50);
 }
 
-
-/* BOTÓN */
-
-.button {
-    display: inline-block;
-
-    margin-top: 40px;
-
-    width: fit-content;
-
-    padding: 15px 30px;
-
-    border: 1px solid #eeeeee;
-
-    color: #eeeeee;
-
-    text-decoration: none;
-
-    background: transparent;
-
-    cursor: pointer;
-
-    letter-spacing: 3px;
-
-    transition: 0.3s;
-}
-
-.button:hover {
-    background: #eeeeee;
-    color: #111111;
-}
-
-
-/* FRASE */
-
-.statement {
-    min-height: 80vh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding: 10%;
-}
-
-.statement p {
+.expresar-container {
     max-width: 800px;
-    font-size: 22px;
-    color: #aaaaaa;
 }
 
-.big-statement {
-    margin-top: 40px;
+/* =========================
+   AVISOS
+========================= */
 
-    font-size: clamp(40px, 6vw, 90px) !important;
-
-    line-height: 1;
-
-    color: #eeeeee !important;
-
-    font-weight: bold;
-}
-
-
-/* MURO */
-
-.wall {
-    padding: 120px 8%;
-
-    background: #eeeeee;
-
-    color: #111111;
-}
-
-.wall h2 {
-    font-size: 60px;
-    line-height: 1;
-}
-
-.section-intro {
-    margin-top: 20px;
-
-    max-width: 500px;
-}
-
-
-/* GALERÍA */
-
-.gallery {
-
-    margin-top: 70px;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 30px;
-}
-
-.art-card {
-    background: #ffffff;
-
-    padding-bottom: 20px;
-}
-
-.art-placeholder {
-
-    aspect-ratio: 1 / 1;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    background: #222222;
-
-    color: #777777;
-
-    letter-spacing: 3px;
-}
-
-.art-card p {
-
+.aviso {
+    background: var(--amber-200);
+    border-left: 6px solid var(--amber-700);
     padding: 20px;
-
-    font-size: 18px;
-}
-
-
-/* EXPRESAR */
-
-.express {
-
-    min-height: 70vh;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    padding: 10%;
-}
-
-.express h2 {
-
-    font-size: clamp(45px, 7vw, 100px);
-
-    line-height: 0.9;
-
-    max-width: 900px;
-}
-
-.express p {
-
-    max-width: 550px;
-
     margin-top: 30px;
-
-    color: #aaaaaa;
-
-    font-size: 20px;
+    color: var(--dark);
 }
 
-
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer {
-
-    padding: 60px 10%;
-
-    border-top: 1px solid #333333;
-
-    color: #777777;
-
+    background: var(--dark);
+    color: var(--amber-100);
+    padding: 40px 8%;
+    text-align: center;
 }
 
-footer p + p {
-
-    margin-top: 20px;
-
-    max-width: 500px;
-
+footer a {
+    color: var(--amber-300);
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
 
-/* MÓVIL */
-
-@media (max-width: 800px) {
-
-    header {
-
-        padding: 20px;
-
-    }
+@media (max-width: 700px) {
 
     nav {
-
+        flex-direction: column;
         gap: 12px;
-
     }
 
     nav a {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 
-        font-size: 10px;
-
+    section {
+        padding: 60px 6%;
     }
 
     .hero {
-
-        padding: 120px 25px;
-
+        min-height: 75vh;
     }
 
-    .hero h2 {
-
-        letter-spacing: -3px;
-
+    .obra img {
+        height: 260px;
     }
-
-    .gallery {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .wall h2 {
-
-        font-size: 45px;
-
-    }
-
 }
