@@ -144,3 +144,94 @@
 
 </body>
 </html>
+
+<section id="expresar" class="expresar">
+    <div class="expresar-container">
+
+        <h2>Expresar</h2>
+
+        <p>
+            No tiene que ser bonito. Tiene que ser tuyo.
+        </p>
+
+        <form id="uploadForm">
+
+            <label for="imagen">Comparte una imagen</label>
+
+            <input
+                type="file"
+                id="imagen"
+                name="imagen"
+                accept="image/*"
+                required
+            >
+
+            <div id="previewContainer" style="display:none;">
+                <p>Vista previa:</p>
+
+                <img
+                    id="preview"
+                    src=""
+                    alt="Vista previa de la imagen"
+                    style="
+                        max-width: 100%;
+                        max-height: 500px;
+                        display: block;
+                        margin: 20px 0;
+                    "
+                >
+            </div>
+
+            <label for="mensaje">¿Quieres decir algo sobre tu obra?</label>
+
+            <textarea
+                id="mensaje"
+                name="mensaje"
+                rows="5"
+                placeholder="Escribe lo que quieras..."
+            ></textarea>
+
+            <button type="submit">
+                Compartir expresión
+            </button>
+
+        </form>
+
+        <p id="mensajeExito" style="display:none;">
+            Tu expresión está lista para compartir.
+        </p>
+
+    </div>
+</section>
+
+<script>
+const imagen = document.getElementById("imagen");
+const preview = document.getElementById("preview");
+const previewContainer = document.getElementById("previewContainer");
+const uploadForm = document.getElementById("uploadForm");
+const mensajeExito = document.getElementById("mensajeExito");
+
+imagen.addEventListener("change", function () {
+
+    const archivo = this.files[0];
+
+    if (archivo) {
+        const url = URL.createObjectURL(archivo);
+
+        preview.src = url;
+        previewContainer.style.display = "block";
+    }
+});
+
+uploadForm.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    mensajeExito.style.display = "block";
+
+    mensajeExito.scrollIntoView({
+        behavior: "smooth"
+    });
+
+});
+</script>
