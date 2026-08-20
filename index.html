@@ -6,271 +6,159 @@
 <title>PiuAvanti</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#FFF8E1;
+color:#211A0D;
+line-height:1.6;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #FFF3D0;
-    color: #211A0D;
-    line-height: 1.6;
+nav{
+position:sticky;
+top:0;
+z-index:10;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:#F5A900;
+box-shadow:0 3px 12px #0002;
 }
 
-/* NAVEGACIÓN */
-
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 20px 8%;
-
-    background: #F5A000;
-    box-shadow: 0 3px 12px rgba(33, 26, 13, 0.15);
+.logo{
+font-size:1.7rem;
+font-weight:900;
 }
 
-.logo {
-    font-size: 1.7rem;
-    font-weight: 900;
+nav a{
+color:#211A0D;
+text-decoration:none;
+font-weight:bold;
+margin-left:25px;
 }
 
-nav a {
-    color: #211A0D;
-    text-decoration: none;
-    font-weight: bold;
-    margin-left: 25px;
+section{padding:90px 8%}
+
+#inicio{
+min-height:90vh;
+display:flex;
+align-items:center;
+background:#FFF8E1;
 }
 
-nav a:hover {
-    color: #FFFFFF;
+.hero{max-width:900px}
+
+h1{
+font-size:clamp(4rem,9vw,8rem);
+line-height:.9;
+letter-spacing:-5px;
 }
 
-/* SECCIONES */
-
-section {
-    padding: 90px 8%;
+.hero p{
+margin-top:35px;
+max-width:650px;
+font-size:1.25rem;
+color:#604714;
 }
 
-/* INICIO */
-
-#inicio {
-    min-height: 90vh;
-
-    display: flex;
-    align-items: center;
-
-    background:
-        radial-gradient(
-            circle at 80% 20%,
-            #FFD15C,
-            transparent 35%
-        ),
-        #FFF3D0;
+.frase{
+display:inline-block;
+margin-top:30px;
+padding:12px 18px;
+background:#211A0D;
+color:#FFD45A;
+font-weight:bold;
 }
 
-.hero {
-    max-width: 900px;
+#muro{
+background:#FFF0B8;
 }
 
-h1 {
-    font-size: clamp(4rem, 9vw, 8rem);
-    line-height: .9;
-    letter-spacing: -5px;
+h2{
+font-size:clamp(2.5rem,5vw,4rem);
+margin-bottom:20px;
 }
 
-.hero p {
-    margin-top: 35px;
-    max-width: 650px;
-    font-size: 1.25rem;
-    color: #604714;
+.intro{
+max-width:700px;
+margin-bottom:45px;
 }
 
-.frase {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 12px 18px;
-
-    background: #211A0D;
-    color: #FFD15C;
-
-    font-weight: bold;
+.obras{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:35px;
 }
 
-/* MURO */
-
-#muro {
-    background: #FFE39A;
+.obra{
+background:white;
+border:2px solid #211A0D;
+box-shadow:9px 9px 0 #F5A900;
+overflow:hidden;
 }
 
-h2 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 20px;
+.obra img{
+display:block;
+width:100%;
+height:350px;
+object-fit:cover;
 }
 
-.intro {
-    max-width: 700px;
-    margin-bottom: 45px;
+.obra-info{
+padding:22px;
 }
 
-.obras {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 35px;
+.obra-info h3{
+margin-bottom:8px;
 }
 
-.obra {
-    background: #FFFFFF;
-
-    border: 2px solid #211A0D;
-
-    box-shadow: 9px 9px 0 #F5A000;
-
-    overflow: hidden;
+#expresar{
+background:#FFF8E1;
 }
 
-.obra img {
-    display: block;
-
-    width: 100%;
-    height: 350px;
-
-    object-fit: cover;
-
-    background: #FFD15C;
+.expresar{
+max-width:800px;
 }
 
-.obra-info {
-    padding: 22px;
+.upload{
+margin-top:35px;
+padding:45px;
+border:3px dashed #F5A900;
+background:#FFF0B8;
+text-align:center;
 }
 
-.obra-info h3 {
-    margin-bottom: 8px;
-    color: #211A0D;
+.upload button{
+margin-top:20px;
+padding:15px 30px;
+border:0;
+background:#211A0D;
+color:white;
+font-weight:bold;
+cursor:pointer;
 }
 
-.obra-info p {
-    color: #604714;
+.aviso{
+margin-top:40px;
+padding:25px;
+border-left:7px solid #F5A900;
+background:#FFE082;
 }
 
-/* EXPRESAR */
-
-#expresar {
-    background: #FFF3D0;
+footer{
+padding:45px 8%;
+background:#211A0D;
+color:#FFD45A;
+text-align:center;
 }
 
-.expresar {
-    max-width: 800px;
-}
-
-.expresar > p {
-    color: #604714;
-}
-
-.upload {
-    margin-top: 35px;
-
-    padding: 45px;
-
-    border: 3px dashed #F5A000;
-
-    background: #FFE39A;
-
-    text-align: center;
-}
-
-.upload h3 {
-    color: #211A0D;
-}
-
-.upload p {
-    color: #604714;
-}
-
-.upload button {
-    margin-top: 20px;
-
-    padding: 15px 30px;
-
-    border: 0;
-
-    background: #F5A000;
-    color: #211A0D;
-
-    font-weight: bold;
-
-    cursor: pointer;
-}
-
-.upload button:hover {
-    background: #E58A00;
-    color: #FFFFFF;
-}
-
-#resultado img {
-    max-width: 100%;
-    max-height: 500px;
-    margin-top: 25px;
-}
-
-/* AVISO */
-
-.aviso {
-    margin-top: 40px;
-
-    padding: 25px;
-
-    border-left: 7px solid #F5A000;
-
-    background: #FFE39A;
-}
-
-.aviso strong {
-    color: #211A0D;
-}
-
-.aviso p {
-    color: #604714;
-}
-
-/* FOOTER */
-
-footer {
-    padding: 45px 8%;
-
-    background: #211A0D;
-
-    color: #FFD15C;
-
-    text-align: center;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 700px) {
-
-    nav {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    nav a {
-        margin: 0 8px;
-    }
-
-    section {
-        padding: 65px 6%;
-    }
-
-    .obra img {
-        height: 300px;
-    }
+@media(max-width:700px){
+nav{flex-direction:column;gap:12px}
+nav a{margin:0 8px}
+section{padding:65px 6%}
+.obra img{height:300px}
 }
 </style>
 </head>
@@ -278,220 +166,125 @@ footer {
 <body>
 
 <nav>
-
-    <div class="logo">
-        PiuAvanti.
-    </div>
-
-    <div>
-        <a href="#inicio">Inicio</a>
-        <a href="#muro">Muro</a>
-        <a href="#expresar">Expresar</a>
-    </div>
-
+<div class="logo">PiuAvanti.</div>
+<div>
+<a href="#inicio">Inicio</a>
+<a href="#muro">Muro</a>
+<a href="#expresar">Expresar</a>
+</div>
 </nav>
 
-
 <section id="inicio">
+<div class="hero">
+<h1>Todavía<br>estás aquí.</h1>
 
-    <div class="hero">
+<p>
+A veces no encontramos las palabras para decir lo que sentimos.
+Crear también puede ser una forma de hacerlo.
+</p>
 
-        <h1>
-            Todavía<br>
-            estás aquí.
-        </h1>
-
-        <p>
-            A veces no encontramos las palabras para decir lo que sentimos.
-            Crear también puede ser una forma de hacerlo.
-        </p>
-
-        <div class="frase">
-            NO TIENE QUE SER BONITO. TIENE QUE SER TUYO.
-        </div>
-
-    </div>
-
+<div class="frase">
+NO TIENE QUE SER BONITO. TIENE QUE SER TUYO.
+</div>
+</div>
 </section>
-
 
 <section id="muro">
 
-    <div class="intro">
+<div class="intro">
+<h2>El muro</h2>
+<p>
+Un espacio para compartir aquello que quizá no pudiste decir
+de otra manera.
+</p>
+</div>
 
-        <h2>
-            El muro
-        </h2>
+<div class="obras">
 
-        <p>
-            Un espacio para compartir aquello que quizá no pudiste decir
-            de otra manera.
-        </p>
+<div class="obra">
+<img src="images/obra1.png" alt="Expresión artística 01">
+<div class="obra-info">
+<h3>Expresión artística 01</h3>
+<p>Una forma de expresar lo que las palabras no alcanzan.</p>
+</div>
+</div>
 
-    </div>
+<div class="obra">
+<img src="images/obra2.png" alt="Expresión artística 02">
+<div class="obra-info">
+<h3>Expresión artística 02</h3>
+<p>Lo que no siempre puede decirse con palabras.</p>
+</div>
+</div>
 
+<div class="obra">
+<img src="images/obra3.png" alt="Expresión artística 03">
+<div class="obra-info">
+<h3>Expresión artística 03</h3>
+<p>Crear también puede ser una manera de continuar.</p>
+</div>
+</div>
 
-    <div class="obras">
-
-        <div class="obra">
-
-            <img
-                src="images/obra1.png"
-                alt="Expresión artística 01"
-            >
-
-            <div class="obra-info">
-
-                <h3>
-                    Expresión artística 01
-                </h3>
-
-                <p>
-                    Una forma de expresar lo que las palabras no alcanzan.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="obra">
-
-            <img
-                src="images/obra2.png"
-                alt="Expresión artística 02"
-            >
-
-            <div class="obra-info">
-
-                <h3>
-                    Expresión artística 02
-                </h3>
-
-                <p>
-                    Lo que no siempre puede decirse con palabras.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="obra">
-
-            <img
-                src="images/obra3.png"
-                alt="Expresión artística 03"
-            >
-
-            <div class="obra-info">
-
-                <h3>
-                    Expresión artística 03
-                </h3>
-
-                <p>
-                    Crear también puede ser una manera de continuar.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
+</div>
 </section>
-
 
 <section id="expresar">
 
-    <div class="expresar">
+<div class="expresar">
 
-        <h2>
-            Exprésalo.
-        </h2>
+<h2>Exprésalo.</h2>
 
-        <p>
-            No necesitas saber dibujar. No necesitas hacerlo perfecto.
-            Solo necesitas encontrar una forma de sacar aquello que llevas dentro.
-        </p>
+<p>
+No necesitas saber dibujar. No necesitas hacerlo perfecto.
+Solo necesitas encontrar una forma de sacar aquello que llevas dentro.
+</p>
 
+<div class="upload">
+<h3>Comparte tu expresión</h3>
 
-        <div class="upload">
+<p>
+Selecciona una imagen para visualizar cómo funcionaría este espacio.
+</p>
 
-            <h3>
-                Comparte tu expresión
-            </h3>
+<button onclick="document.getElementById('foto').click()">
+Seleccionar imagen
+</button>
 
-            <p>
-                Selecciona una imagen para visualizar cómo funcionaría este espacio.
-            </p>
+<input id="foto" type="file" accept="image/*" hidden
+onchange="preview(event)">
 
-            <button onclick="document.getElementById('foto').click()">
-                Seleccionar imagen
-            </button>
+<div id="resultado"></div>
+</div>
 
-            <input
-                id="foto"
-                type="file"
-                accept="image/*"
-                hidden
-                onchange="preview(event)"
-            >
+<div class="aviso">
+<strong>Crear no sustituye la atención profesional.</strong>
+<p>
+PiuAvanti propone el arte como un medio de expresión,
+no como reemplazo de ayuda psicológica o profesional.
+</p>
+</div>
 
-            <div id="resultado"></div>
-
-        </div>
-
-
-        <div class="aviso">
-
-            <strong>
-                Crear no sustituye la atención profesional.
-            </strong>
-
-            <p>
-                PiuAvanti propone el arte como un medio de expresión,
-                no como reemplazo de ayuda psicológica o profesional.
-            </p>
-
-        </div>
-
-    </div>
-
+</div>
 </section>
 
-
 <footer>
-
-    PiuAvanti — Expresarse también es avanzar.
-
+PiuAvanti — Expresarse también es avanzar.
 </footer>
 
-
 <script>
+function preview(event){
+const archivo=event.target.files[0];
+if(!archivo)return;
 
-function preview(event) {
+const imagen=document.createElement("img");
+imagen.src=URL.createObjectURL(archivo);
+imagen.style.maxWidth="100%";
+imagen.style.maxHeight="500px";
+imagen.style.marginTop="25px";
 
-    const archivo = event.target.files[0];
-
-    if (!archivo) return;
-
-    const imagen = document.createElement("img");
-
-    imagen.src = URL.createObjectURL(archivo);
-
-    imagen.style.maxWidth = "100%";
-    imagen.style.maxHeight = "500px";
-    imagen.style.marginTop = "25px";
-
-    const resultado = document.getElementById("resultado");
-
-    resultado.innerHTML = "";
-
-    resultado.appendChild(imagen);
+document.getElementById("resultado").innerHTML="";
+document.getElementById("resultado").appendChild(imagen);
 }
-
 </script>
 
 </body>
