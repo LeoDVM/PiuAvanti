@@ -6,285 +6,510 @@
 <title>PiuAvanti</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:#FFF8E1;
-color:#211A0D;
-line-height:1.6;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-nav{
-position:sticky;
-top:0;
-z-index:10;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
-background:#F5A900;
-box-shadow:0 3px 12px #0002;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #F3D99A;
+    color: #211208;
+    line-height: 1.6;
 }
 
-.logo{
-font-size:1.7rem;
-font-weight:900;
+/* NAVEGACIÓN */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 8%;
+
+    background: #C87808;
+    box-shadow: 0 3px 12px rgba(33, 18, 8, 0.25);
 }
 
-nav a{
-color:#211A0D;
-text-decoration:none;
-font-weight:bold;
-margin-left:25px;
+.logo {
+    font-size: 1.7rem;
+    font-weight: 900;
 }
 
-section{padding:90px 8%}
-
-#inicio{
-min-height:90vh;
-display:flex;
-align-items:center;
-background:#FFF8E1;
+nav a {
+    color: #211208;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 25px;
 }
 
-.hero{max-width:900px}
-
-h1{
-font-size:clamp(4rem,9vw,8rem);
-line-height:.9;
-letter-spacing:-5px;
+nav a:hover {
+    color: #FFF5D6;
 }
 
-.hero p{
-margin-top:35px;
-max-width:650px;
-font-size:1.25rem;
-color:#604714;
+/* SECCIONES */
+
+section {
+    padding: 90px 8%;
 }
 
-.frase{
-display:inline-block;
-margin-top:30px;
-padding:12px 18px;
-background:#211A0D;
-color:#FFD45A;
-font-weight:bold;
+/* INICIO */
+
+#inicio {
+    min-height: 90vh;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            #E89A16,
+            transparent 35%
+        ),
+        #F3D99A;
 }
 
-#muro{
-background:#FFF0B8;
+.hero {
+    max-width: 900px;
 }
 
-h2{
-font-size:clamp(2.5rem,5vw,4rem);
-margin-bottom:20px;
+h1 {
+    font-size: clamp(4rem, 9vw, 8rem);
+    line-height: .9;
+    letter-spacing: -5px;
 }
 
-.intro{
-max-width:700px;
-margin-bottom:45px;
+.hero p {
+    margin-top: 35px;
+    max-width: 650px;
+    font-size: 1.25rem;
+    color: #5A3008;
 }
 
-.obras{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:35px;
+.frase {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 18px;
+
+    background: #211208;
+    color: #E89A16;
+
+    font-weight: bold;
 }
 
-.obra{
-background:white;
-border:2px solid #211A0D;
-box-shadow:9px 9px 0 #F5A900;
-overflow:hidden;
+/* MURO */
+
+#muro {
+    background: #E8B65A;
 }
 
-.obra img{
-display:block;
-width:100%;
-height:350px;
-object-fit:cover;
+h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 20px;
 }
 
-.obra-info{
-padding:22px;
+.intro {
+    max-width: 700px;
+    margin-bottom: 45px;
 }
 
-.obra-info h3{
-margin-bottom:8px;
+.obras {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
 }
 
-#expresar{
-background:#FFF8E1;
+.obra {
+    background: #FFF5D6;
+
+    border: 2px solid #211208;
+
+    box-shadow: 9px 9px 0 #C87808;
+
+    overflow: hidden;
 }
 
-.expresar{
-max-width:800px;
+.obra img {
+    display: block;
+
+    width: 100%;
+    height: 350px;
+
+    object-fit: cover;
+
+    background: #E89A16;
 }
 
-.upload{
-margin-top:35px;
-padding:45px;
-border:3px dashed #F5A900;
-background:#FFF0B8;
-text-align:center;
+.obra-info {
+    padding: 22px;
 }
 
-.upload button{
-margin-top:20px;
-padding:15px 30px;
-border:0;
-background:#211A0D;
-color:white;
-font-weight:bold;
-cursor:pointer;
+.obra-info h3 {
+    margin-bottom: 8px;
+    color: #351B08;
 }
 
-.aviso{
-margin-top:40px;
-padding:25px;
-border-left:7px solid #F5A900;
-background:#FFE082;
+.obra-info p {
+    color: #5A3008;
 }
 
-footer{
-padding:45px 8%;
-background:#211A0D;
-color:#FFD45A;
-text-align:center;
+/* EXPRESAR */
+
+#expresar {
+    background: #F3D99A;
 }
 
-@media(max-width:700px){
-nav{flex-direction:column;gap:12px}
-nav a{margin:0 8px}
-section{padding:65px 6%}
-.obra img{height:300px}
+.expresar {
+    max-width: 800px;
+}
+
+.expresar > p {
+    color: #5A3008;
+}
+
+.upload {
+    margin-top: 35px;
+
+    padding: 45px;
+
+    border: 3px dashed #C87808;
+
+    background: #E8B65A;
+
+    text-align: center;
+}
+
+.upload h3 {
+    color: #351B08;
+}
+
+.upload p {
+    color: #5A3008;
+}
+
+.upload button {
+    margin-top: 20px;
+
+    padding: 15px 30px;
+
+    border: 0;
+
+    background: #211208;
+    color: #FFF5D6;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.upload button:hover {
+    background: #8A4A08;
+}
+
+#resultado img {
+    max-width: 100%;
+    max-height: 500px;
+    margin-top: 25px;
+}
+
+/* AVISO */
+
+.aviso {
+    margin-top: 40px;
+
+    padding: 25px;
+
+    border-left: 7px solid #8A4A08;
+
+    background: #E8B65A;
+}
+
+.aviso strong {
+    color: #351B08;
+}
+
+.aviso p {
+    color: #5A3008;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 45px 8%;
+
+    background: #211208;
+
+    color: #E89A16;
+
+    text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0 8px;
+    }
+
+    section {
+        padding: 65px 6%;
+    }
+
+    .obra img {
+        height: 300px;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVEGACIÓN -->
+
 <nav>
-<div class="logo">PiuAvanti.</div>
-<div>
-<a href="#inicio">Inicio</a>
-<a href="#muro">Muro</a>
-<a href="#expresar">Expresar</a>
-</div>
+
+    <div class="logo">
+        PiuAvanti.
+    </div>
+
+    <div>
+        <a href="#inicio">Inicio</a>
+        <a href="#muro">Muro</a>
+        <a href="#expresar">Expresar</a>
+    </div>
+
 </nav>
 
+
+<!-- INICIO -->
+
 <section id="inicio">
-<div class="hero">
-<h1>Todavía<br>estás aquí.</h1>
 
-<p>
-A veces no encontramos las palabras para decir lo que sentimos.
-Crear también puede ser una forma de hacerlo.
-</p>
+    <div class="hero">
 
-<div class="frase">
-NO TIENE QUE SER BONITO. TIENE QUE SER TUYO.
-</div>
-</div>
+        <h1>
+            Todavía<br>
+            estás aquí.
+        </h1>
+
+        <p>
+            A veces no encontramos las palabras para decir lo que sentimos.
+            Crear también puede ser una forma de hacerlo.
+        </p>
+
+        <div class="frase">
+            NO TIENE QUE SER BONITO. TIENE QUE SER TUYO.
+        </div>
+
+    </div>
+
 </section>
+
+
+<!-- MURO -->
 
 <section id="muro">
 
-<div class="intro">
-<h2>El muro</h2>
-<p>
-Un espacio para compartir aquello que quizá no pudiste decir
-de otra manera.
-</p>
-</div>
+    <div class="intro">
 
-<div class="obras">
+        <h2>
+            El muro
+        </h2>
 
-<div class="obra">
-<img src="images/obra1.png" alt="Expresión artística 01">
-<div class="obra-info">
-<h3>Expresión artística 01</h3>
-<p>Una forma de expresar lo que las palabras no alcanzan.</p>
-</div>
-</div>
+        <p>
+            Un espacio para compartir aquello que quizá no pudiste decir
+            de otra manera.
+        </p>
 
-<div class="obra">
-<img src="images/obra2.png" alt="Expresión artística 02">
-<div class="obra-info">
-<h3>Expresión artística 02</h3>
-<p>Lo que no siempre puede decirse con palabras.</p>
-</div>
-</div>
+    </div>
 
-<div class="obra">
-<img src="images/obra3.png" alt="Expresión artística 03">
-<div class="obra-info">
-<h3>Expresión artística 03</h3>
-<p>Crear también puede ser una manera de continuar.</p>
-</div>
-</div>
 
-</div>
+    <div class="obras">
+
+
+        <!-- EXPRESIÓN 01 -->
+
+        <div class="obra">
+
+            <img
+                src="images/obra1.png"
+                alt="Expresión artística 01"
+            >
+
+            <div class="obra-info">
+
+                <h3>
+                    Expresión artística 01
+                </h3>
+
+                <p>
+                    Una forma de expresar lo que las palabras no alcanzan.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- EXPRESIÓN 02 -->
+
+        <div class="obra">
+
+            <img
+                src="images/obra2.png"
+                alt="Expresión artística 02"
+            >
+
+            <div class="obra-info">
+
+                <h3>
+                    Expresión artística 02
+                </h3>
+
+                <p>
+                    Lo que no siempre puede decirse con palabras.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- EXPRESIÓN 03 -->
+
+        <div class="obra">
+
+            <img
+                src="images/obra3.png"
+                alt="Expresión artística 03"
+            >
+
+            <div class="obra-info">
+
+                <h3>
+                    Expresión artística 03
+                </h3>
+
+                <p>
+                    Crear también puede ser una manera de continuar.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
+
+
+<!-- EXPRESAR -->
 
 <section id="expresar">
 
-<div class="expresar">
+    <div class="expresar">
 
-<h2>Exprésalo.</h2>
+        <h2>
+            Exprésalo.
+        </h2>
 
-<p>
-No necesitas saber dibujar. No necesitas hacerlo perfecto.
-Solo necesitas encontrar una forma de sacar aquello que llevas dentro.
-</p>
+        <p>
+            No necesitas saber dibujar. No necesitas hacerlo perfecto.
+            Solo necesitas encontrar una forma de sacar aquello que llevas dentro.
+        </p>
 
-<div class="upload">
-<h3>Comparte tu expresión</h3>
 
-<p>
-Selecciona una imagen para visualizar cómo funcionaría este espacio.
-</p>
+        <div class="upload">
 
-<button onclick="document.getElementById('foto').click()">
-Seleccionar imagen
-</button>
+            <h3>
+                Comparte tu expresión
+            </h3>
 
-<input id="foto" type="file" accept="image/*" hidden
-onchange="preview(event)">
+            <p>
+                Selecciona una imagen para visualizar cómo funcionaría este espacio.
+            </p>
 
-<div id="resultado"></div>
-</div>
+            <button onclick="document.getElementById('foto').click()">
+                Seleccionar imagen
+            </button>
 
-<div class="aviso">
-<strong>Crear no sustituye la atención profesional.</strong>
-<p>
-PiuAvanti propone el arte como un medio de expresión,
-no como reemplazo de ayuda psicológica o profesional.
-</p>
-</div>
+            <input
+                id="foto"
+                type="file"
+                accept="image/*"
+                hidden
+                onchange="preview(event)"
+            >
 
-</div>
+            <div id="resultado"></div>
+
+        </div>
+
+
+        <div class="aviso">
+
+            <strong>
+                Crear no sustituye la atención profesional.
+            </strong>
+
+            <p>
+                PiuAvanti propone el arte como un medio de expresión,
+                no como reemplazo de ayuda psicológica o profesional.
+            </p>
+
+        </div>
+
+    </div>
+
 </section>
 
+
+<!-- FOOTER -->
+
 <footer>
-PiuAvanti — Expresarse también es avanzar.
+
+    PiuAvanti — Expresarse también es avanzar.
+
 </footer>
 
+
+<!-- PREVISUALIZACIÓN DE IMAGEN -->
+
 <script>
-function preview(event){
-const archivo=event.target.files[0];
-if(!archivo)return;
 
-const imagen=document.createElement("img");
-imagen.src=URL.createObjectURL(archivo);
-imagen.style.maxWidth="100%";
-imagen.style.maxHeight="500px";
-imagen.style.marginTop="25px";
+function preview(event) {
 
-document.getElementById("resultado").innerHTML="";
-document.getElementById("resultado").appendChild(imagen);
+    const archivo = event.target.files[0];
+
+    if (!archivo) return;
+
+    const imagen = document.createElement("img");
+
+    imagen.src = URL.createObjectURL(archivo);
+
+    imagen.style.maxWidth = "100%";
+    imagen.style.maxHeight = "500px";
+    imagen.style.marginTop = "25px";
+
+    const resultado = document.getElementById("resultado");
+
+    resultado.innerHTML = "";
+
+    resultado.appendChild(imagen);
 }
+
 </script>
 
 </body>
