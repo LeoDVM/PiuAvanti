@@ -1,15 +1,11 @@
 :root {
-    --amber-50: #fff8e1;
-    --amber-100: #ffecb3;
-    --amber-200: #ffe082;
-    --amber-300: #ffd54f;
-    --amber-400: #ffca28;
-    --amber-500: #ffb300;
-    --amber-600: #ff8f00;
-    --amber-700: #f57c00;
-    --dark: #2b2110;
-    --brown: #5d4218;
-    --white: #fffdf7;
+    --amber: #C87808;
+    --amber-light: #E89A16;
+    --amber-pale: #E8B65A;
+    --cream: #F3D99A;
+    --black: #211208;
+    --brown: #5A3008;
+    --white: #FFF5D6;
 }
 
 * {
